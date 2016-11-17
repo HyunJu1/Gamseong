@@ -1,0 +1,16 @@
+<message id="">
+  <gcm xmlns="google:mobile:data">
+  {
+      "category":"com.example.yourapp", // to know which app sent it
+      "data":
+      {
+         “message_status":"메시지전송하기",
+         “original_message_id”:”m-1366082849205”
+         “device_registration_id”: “774277333888”
+      },
+      "message_id":"dr2:m-1366082849205",
+      "message_type":"receipt",
+      "from":"gcm.googleapis.com"
+  }
+  </gcm>
+</message>

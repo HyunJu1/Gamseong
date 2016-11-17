@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="List1">
+     
+      <select id="selectList1" resultType="com.highluck.dto.ReplyUserDTO"  parameterType= "com.highluck.dto.DbValue">
+        <![CDATA[
+ SELECT 
+   C.user_id,
+   ( SELECT name 
+   FROM USER
+   where id = C.user_id) AS name , 
+   C.CONTENTS,
+   C.CREATION_TIMESTAMP, 
+   B.user_id AS feed_user_id
+FROM FEED B
+JOIN REPLY C
+ON B.id = C.feed_id
+WHERE B.id = '${feedId}'
+GROUP BY C.user_id       
+        ]]>
+    </select>     
+</mapper>
